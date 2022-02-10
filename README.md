@@ -1,3 +1,7 @@
+Simple JavaScript Algorithm
+
+Daily Algorithm
+
 Day 3 A
 
 Implement pow(x, n), which calculates x raised to the power n (i.e., xn).
