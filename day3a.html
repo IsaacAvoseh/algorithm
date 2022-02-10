@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3</title>
+</head>
+<body>
+    
+
+    <script>
+
+        //Day 3 A
+        //check readme for instructions
+
+        var myPow = function(x, n) {
+
+        let result = Math.pow(x, n );
+
+        return result
+        };
+
+
+        //day 3 b
+        //check readme for instructions
+        var maxSubArray = function(nums) {
+        let result = nums[0];
+        let sum = 0;
+
+        for (let num of nums) {
+        if (sum < 0) sum=0; sum +=num; result=Math.max(sum, result); } return result; };
+
+        //check if user is allowed to add and ipad to its shopping cart, write a tenery operator that set 
+        // let isAuthenticated =  false;
+        // let shoppingCart =  isAuthenticated? 'Ipad': '';
+
+        let isAuthenticated =  true;
+        let age = 18;
+        let allowAccess =  age > 18? isAuthenticated: false;
+
+        // Challenge: Help Darth Vader express himself to his son!
+         const mySon = "Luke";
+        const parentalStatus = "father";
+        // Use Template literals to say "Luke, I am your father"
+        console.log(`${mySon} , I am your ${parentalStatus}`);
+
+        // // Challenge 1: create a conditional that logs out "Good morning!", "Good Afternoon", "Good evening!" and so on
+        // depending on the value of time (<- a variable) // Challenge 2: Rewrite the whole thing as a switch statement
+        let time = new Date().getHours();
+        let greetings = time < 12? "Good morning": time < 18? "Good afternoon": "Good evening";
+        console.log(greetings);
+        console.log('time', time);
+        //with switch statement
+        let time2 = new Date().getHours();
+        let greetings2 = "";
+        switch (true) {
+            case time2 < 12:
+                greetings2 = "Good morning";
+                break;
+            case time2 < 18:
+                greetings2 = "Good afternoon";
+                console.log('time', time2);
+                break;
+            default:
+                greetings2 = "Good evening";
+                break;
+        }
+        console.log(greetings2);
+        // console.log('time', time);
+
+
+        // Let's say you're building Reddit. Only users that are either moderators or have reached a certain karma
+        // threshold are allowed to upvote. */
+        // Given:
+         const karma = 130;
+         const isModerator = true;
+        // // write ternary to set hasEnoughKarma to true if karma is above 100. If not, set it to false
+        // // write an expression that decides the value of canUpvote
+       
+        // Let's say that only moderators who have enough karma are allowed to delete posts. How would you set the
+        // canDelete variable */
+        // what is the value of user? What if you switch the hasValidEmail variable to false? What if the response is
+        // empty?
+
+        let hasEnoughKarma = karma > 100 ? true: false;
+        let canUpvote = isModerator && hasEnoughKarma ? true: false;
+
+        let canDelete = isModerator && hasEnoughKarma ? true: false;
+
+
+
+
+
+          console.log("canUpvote:", canUpvote);
+          console.log("hasEnoughKarma:", hasEnoughKarma);
+          console.log("isModerator:", isModerator);
+          console.log('canDelete:', canDelete);
+
+        //   Write a function called fullname that outputs "My fullname is Opeyemi Emmanuel" if I pass my firstname and
+        //   lastname to the function
+
+        const fullname = (firstName, lastName) => {
+            return `My fullname is ${firstName} ${lastName}`;
+        };
+
+          console.log(fullname("opeyemi","emmanuel"))
+          console.log(fullname("tolani","joke"))
+
+        //  Challenge: Write a function splitBill() that lets you know how much
+        //  // you need to pay to split any bill between you and your friends.
+        //  // It should return a message with a number.
+
+        const splitBill = (bill, friend) =>{
+            return `Each persons need to pay ${bill/friend} `;
+        };
+        
+        
+                // Each person needs to pay 5
+                // Each person needs to pay 4
+                // Each person needs to pay 38.888888888888886
+        
+        console.log(splitBill(10, 2))
+        console.log(splitBill(16, 4))
+        console.log(splitBill(350, 9))
+
+        // Given two numbers, write a function that returns true if the sum of both numbers is less than 100. Otherwise
+        // return false.
+
+        const lessThan100 = (num1, num2) => {
+            return num1 + num2 < 100 ? true: false;
+        };
+
+        console.log(lessThan100(10, 20));
+        console.log(lessThan100(90, 20));
+      
+        // You are counting points for a basketball game, given the amount of 2-pointers scored and 3-pointers scored, find
+        // the final points for the team and return that value.
+
+        const basketballPoints = (twoPointers, threePointers) => {
+            return twoPointers * 2 + threePointers * 3;
+        };
+        console.log(basketballPoints(2, 3));
+        console.log(basketballPoints(5, 2));
+
+
+        // Create a function that takes an array containing only numbers and return the first element.
+
+        const getFirstValue = (arr) => {
+            if(arr.length === 0) return undefined + 'Empty Array';
+            else if (Array.isArray(arr)) return arr[0];
+            else return 'Not an array';
+        };
+
+        console.log('yes',getFirstValue([1, 2, 3]));
+        console.log('empty',getFirstValue([]));
+        console.log('string',getFirstValue('3'));
+        console.log('string acb',getFirstValue(['a', 'b', 'c']));
+
+
+        // Write a function that takes the base and height of a triangle and return its area.
+        const triArea = (base, height) => {
+            return base * height / 2;
+        };
+        console.log(triArea(3, 2));
+        console.log(triArea(7, 4));
+
+        // Create a function that takes three arguments prob, prize, pay and returns true if prob * prize > pay; otherwise
+        // return false.
+
+        const profitableGamble = (prob, prize, pay) => {
+            return prob * prize > pay ? true: false;
+        };
+
+        console.log('case1', profitableGamble(0.2, 50, 9));
+        console.log( profitableGamble(0.9, 1, 2));
+
+        // Create a function that takes two arguments. Both arguments are integers, a and b. Return true if one of them is 10 or if their sum is 10.
+
+        const makesTen= (a, b) => {
+            return a === 10 || b === 10 || a + b === 10 ? true: false;
+        };
+
+        console.log('case1', makesTen(9, 10));
+        console.log(makesTen(9, 9));
+        console.log(makesTen(1, 9));
+
+        // Create a function that takes two strings as arguments and return either true or false depending on whether the
+        // total number of characters in the first string is equal to the total number of characters in the second string.
+
+        const comp = (str1, str2) => {
+            return str1.length === str2.length ? true: false;
+        };
+
+        console.log(comp('abcd', 'abcd'));
+        console.log(comp('abcd', 'abdcee'));
+
+
+
+        // Elections are in progress!
+
+        // Given an array of the numbers of votes given to each of the candidates so far, and an integer k equal to the
+        // number of voters who haven't cast their vote yet, find the number of candidates who still have a chance to win
+        // the election.
+
+        // The winner of the election must secure strictly more votes than any other candidate. If two or more candidates
+        // receive the same (maximum) number of votes, assume there is no winner at all.
+
+        // Example
+
+        // For votes = [2, 3, 5, 2] and k = 3, the output should be electionsWinners(votes, k) = 2.
+
+        // The first candidate got 2 votes. Even if all of the remaining 3 candidates vote for him, he will still have only
+        // 5 votes, i.e. the same number as the third candidate, so there will be no winner.
+
+        // The second candidate can win if all the remaining candidates vote for him (3 + 3 = 6 > 5).
+
+        // The third candidate can win even if none of the remaining candidates vote for him. For example, if each of the
+        // remaining voters cast their votes for each of his opponents, he will still be the winner (the votes array will
+        // thus be [3, 4, 5, 3]).
+
+        // The last candidate can't win no matter what (for the same reason as the first candidate).
+
+        // Thus, only 2 candidates can win (the second and the third), which is the answer.
+
+
+        // Write the function electionsWinners
+
+        const electionsWinners = (votes, k) => {
+            let max = Math.max(...votes);
+            let count = 0;
+            for(let i = 0;  i < votes.length; i++){
+                if(votes[i] + k > max){
+                    count++;
+                }
+            }
+            return count;
+        };
+    const votes = [2, 3, 5, 2]
+        console.log( electionsWinners(votes, 3))
+        console.log( electionsWinners(votes, 1))
+        
+
+
+
+    </script>
+</body>
+</html>
