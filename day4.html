@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4</title>
+</head>
+<body>
+    
+
+    <script>
+        //Given an m x n matrix, write a function that return all elements of the matrix in spiral order.
+
+const spiralOder = (matrix) => {
+    let result = [];
+    let rowStart = 0;
+    let rowEnd = matrix.length - 1;
+    let colStart = 0;
+    let colEnd = matrix[0].length - 1;
+
+    while (rowStart <= rowEnd && colStart <= colEnd) {
+        //top row
+        for (let i = colStart; i <= colEnd; i++) {
+            result.push(matrix[rowStart][i]);
+        }
+        rowStart++;
+
+        //right col
+        for (let i = rowStart; i <= rowEnd; i++) {
+            result.push(matrix[i][colEnd]);
+        }
+        colEnd--;
+
+        //bottom row
+        for (let i = colEnd; i >= colStart; i--) {
+            result.push(matrix[rowEnd][i]);
+        }
+        rowEnd--;
+
+        //left col
+        for (let i = rowEnd; i >= rowStart; i--) {
+            result.push(matrix[i][colStart]);
+        }
+        colStart++;
+    }
+    return result;
+}
+
+
+
+// You are given an integer array nums. You are initially positioned at the array's first index, and each element in the
+// array represents your maximum jump length at that position.
+
+// Return true if you can reach the last index, or false otherwise.
+const canJump = (nums) => {
+    let maxJump = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        if (maxJump >= i) {
+            maxJump = Math.max(maxJump, i + nums[i]);
+        }
+    }
+}
+
+//reverse number with out using built in functions, num = 12345, with for loop
+const reverseNumber = (num) => {
+    let result = '';
+    let numStr = num.toString();
+    for (let i = numStr.length - 1; i >= 0; i--) {
+        result += numStr[i];
+    }
+    return parseInt(result);
+}
+console.log(reverseNumber(12345));
+
+
+
+
+const product = ['sanitizer', 'bootleWater', 'toiletPaper']
+let latestProduct = product[product.length - 1] = 'PaperTowel';
+console.log(product);
+console.log(latestProduct);
+
+let removedProduct = product.shift();
+console.log(product);
+
+const addedProduct = product.push('Bleach');
+console.log(product);
+
+const addHypo = product.unshift('Hypo');
+console.log(product);
+
+//get the length of the array
+console.log(product.length);
+
+const outputeachElement = () =>{
+    for(let i = 0; i < product.length; i++){
+        console.log(`Element at index ${i} is ${product[i]}`);
+    }
+}
+console.log(outputeachElement());
+
+
+//concatenate three arrays
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const array3 = [7, 8, 9];
+
+let allAllArrays = array1.concat(array2, array3);
+console.log(allAllArrays);
+
+//using array.fill()
+const array4 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(array4.fill('b', 0, 6));
+
+
+// Write a JavaScript function to get the first element of an array. Passing a parameter 'n' will return the first 'n' elements of the array.
+const first = (array, n) =>   {
+    if (n === undefined) {
+        return array[0];
+    } else if( n >= 0){
+        return array.slice(0, n);
+    } else {
+        // return array.slice(n);
+        return []
+    }
+
+    }
+
+
+
+console.log(first([7, 9, 0, -2])); //  should return 7
+console.log(first([],3)); // should return []
+console.log(first([7, 9, 0, -2],3)); // should return [7, 9, 0]
+console.log(first([7, 9, 0, -2],6)); // should return [7, 9, 0, -2]
+console.log(first([7, 9, 0, -2],-3)); // should return []
+console.log(first([],-3)); // should return []
+
+
+
+//Create a function that accept and array. Given an n x n array , return the array element arranged from outermost elements to the middle element, traveling clockwise.
+
+const snail = (array) => {
+    let result = [];
+    let rowStart = 0;
+    let rowEnd = array.length - 1;
+    let colStart = 0;
+    let colEnd = array[0].length - 1;
+
+    while (rowStart <= rowEnd && colStart <= colEnd) {
+        //top row
+        for (let i = colStart; i <= colEnd; i++) {
+            result.push(array[rowStart][i]);
+        }
+        rowStart++;
+        console.log('rowStart', rowStart)
+
+        //right col
+        for (let i = rowStart; i <= rowEnd; i++) {
+            result.push(array[i][colEnd]);
+        }
+        colEnd--;
+        console.log('colEnd', colEnd)
+
+
+        //bottom row
+        for (let i = colEnd; i >= colStart; i--) {
+            result.push(array[rowEnd][i]);
+        }
+        rowEnd--;
+        console.log('rowEnd', rowEnd)
+
+
+        //left col
+        for (let i = rowEnd; i >= rowStart; i--) {
+            result.push(array[i][colStart]);
+        }
+        colStart++;
+        console.log('colStart', colStart)
+
+    }
+    return result;
+}
+
+console.log(snail([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]));
+
+console.log(snail([
+    [1, 2, 3],
+    [8, 9, 4],
+    [7,6,5]
+]));
+
+console.log(snail([
+    [1,2,3,1],
+    [4,5,6,4],
+    [7,8,9,7],
+    [7,8,9,7]
+
+]))
+
+// Write a simple JavaScript program to join all elements of the following array into a string
+const array = ['This', 'is', 'my', 'array'];
+
+
+
+// Write a JavaScript program which accept a number as input and insert dashes (-) between each two even numbers. For example if you accept 025468 the output should be 0-254-6-8
+
+const insertDash = (num) => {
+    let result = '';
+    let numStr = num.toString();
+    console.log(' number to string ', numStr)
+    for (let i = 0; i < numStr.length; i++) {
+        if ( numStr[i] === 0 || numStr[i] % 2 === 0 && numStr[i + 1] % 2 === 0) {
+            result += numStr[i] + '-';
+        } else {
+            result += numStr[i];
+        }
+    }
+    return result;
+}
+
+console.log(insertDash(0825468));
+console.log(insertDash(6444447465474444));
+
+
+
+    </script>
+</body>
+</html>
