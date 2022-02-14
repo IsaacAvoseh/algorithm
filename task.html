@@ -156,7 +156,7 @@ const displayColors = (arr) => {
       } else {
       console.log(`${index + 1}${ordinal[i]} choice is ${color}`);
       i < 3 ? i++ : i; } });
-             return
+     return
 
 }
    
@@ -219,15 +219,48 @@ const unionOfTwoArr = (arr1, arr2) =>{
 // ["3", "10", "100"]
 // console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]]));
 // ["6"]
-// console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+// console.log(difference([1, 2, 3], [100, 2, 1, 10]));     
 // ["3", "10", "100"]
 
 const difference = (arr1, arr2) =>{
     let result = [];
+
+   const flatten = (arr) => {
+   arr.reduce(
+   (a, b) => res = a.concat(Array.isArray(b) ? flatten(b) : b), []
+   );
+   return res;
+   }
+let arr3 =  flatten(arr1);
+let arr4 =  flatten(arr2);
+console.log('ddd', arr3)
+console.log('ddd', arr4)
+    for(let i = 0; i < arr3.length; i++){
+        if(!arr4.includes(arr3[i])){
+            result.push(arr3[i])
+        }
+    }
+    for(let i = 0; i < arr4.length; i++){
+        if(!arr3.includes(arr4[i])){
+            result.push(arr4[i])
+    }
+}
     return result;
 }
 console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]]));
 console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+
+// //use reduce to concat all the elements of an array
+//  const flatten = (arr) => {
+//      arr.reduce(
+//      (a, b) => res = a.concat(Array.isArray(b) ? flatten(b) : b), []
+//      );
+//      console.log('kkdkdkd',res)
+//         return res;
+//  }
+
+// let nfn = [[1, 2, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]]];
+// console.log(flatten(nfn));
 
 
 // Write a JavaScript function to remove. 'null', '0', '""', 'false', 'undefined' and 'NaN' values from an array. 
