@@ -143,10 +143,10 @@ console.log(removeDuplicate(['car', 'CAR', 'Car', 'blue', 'Blue', 'BLUE', 'green
 // - - - - - - - - - - - - -
 // Note : Use ordinal numbers to tell their position.
 
-const displayColors = (color) => {
+const displayColors = (arr) => {
       let ordinal = ["st", "nd", "rd", "th"];
       let i = 0;
-      color.map((color, index) => {
+      arr.map((color, index) => {
       if (index + 1 > 20 && (index + 1) % 10 == 1) {
       console.log(`${index + 1}st choice is ${color}`);
       } else if (index + 1 > 20 && (index + 1) % 10 == 2) {
@@ -156,7 +156,7 @@ const displayColors = (color) => {
       } else {
       console.log(`${index + 1}${ordinal[i]} choice is ${color}`);
       i < 3 ? i++ : i; } });
-        return
+             return
 
 }
    
