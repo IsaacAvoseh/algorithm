@@ -15,15 +15,15 @@
     <script>
         // <!-- 19. Pick a penguin from Wikipedia's List of Fictional Penguins - https://en.wikipedia.org/wiki/List_of_fictional_penguins and create an object named myPenguin with properties that represent the information listed in each column on that Wikipedia page (for example: the character's name, origin, and author). -->
 
-        const myPenguin = {
-            Name: "Captain Cook, Greta, other penguins",
+        let myPenguin = {
+            name: "Captain Cook, Greta, other penguins",
             origin: "Mr. Popper's Penguins",
             author: "Richard and Florence Atwater",
             notes: "Children's book about a housepainter who ends up with a flock of penguins."
 
         }
         // 20. Use console.log() to print the penguin's name to the console as part of a welcome message, like "Hello, 
-        // I'm a penguin and my name is [NAME HERE]!"
+        // I'm a penguin and my name is [name HERE]!"
         const output = document.getElementById('output')
         // output.innerHTML = `hello, i'm a penguin and my name is ${myPenguin.Name}`
 
@@ -54,7 +54,7 @@
         // so that way the sayHello method could potentially work for any penguin that has a name!
 
         myPenguin['sayHello'] = function () {
-            return this.Name
+            return this.name
         }
         console.log(myPenguin)
         output.innerHTML += '<br>' + `hi, this is my ${myPenguin.sayHello()}`
@@ -67,9 +67,9 @@
         // 25. Without modifying any of your previous code, change the penguin's name to 
         //"Penguin McPenguinFace" 
         //and then call your penguin's sayHello() function one more time to make sure it still works.
-        myPenguin['Name'] = 'Penguin McPenguinFace'
+        myPenguin['name'] = 'Penguin McPenguinFace'
         output.innerHTML += '<br>' + `hi, this is my ${myPenguin.sayHello()}`
-        output.innerHTML += '<br>' + `hi, this is my ${myPenguin.Name}`
+        output.innerHTML += '<br>' + `hi, this is my ${myPenguin.name}`
         //26. Write another method called fly, and inside that method, 
         //use an if / else statement to print "I can fly!" to the console 
         //if your penguin's canFly property is true, or "No flying for me!" if its canFly property is false.
@@ -170,7 +170,11 @@ myPenguin.outfit = {
     pants: 'cargo shorts',
     shoes: 'flip-flops'
 }
-
+//merge the two objects
+// myPenguin = {
+//     ...myPenguin,
+//     ...myPenguin.outfit
+// }
 // . Create a new variable called penguinHatType and set it equal to the value of the hat in your penguin's outfit! Then
 // print your new variable to the console.
 let penguinHatType = myPenguin.outfit.hat
@@ -200,6 +204,95 @@ for (const key in myPenguin.outfit) {
 
     }
 }
+
+
+// 46. Create a new variable named penguins and set it equal to an array that lists these three penguins! (Hint: remember
+// you can put variable names inside an array, not just hard-coded values! And remember that variable names don't have
+// quotes around them.)
+var gunter = {
+name: "Gunter",
+origin: "Adventure Time",
+canFly: false,
+sayHello: function () {
+console.log("QUACK!!!");
+}
+};
+
+var ramon = {
+name: "Ramón",
+origin: "Happy Feet",
+canFly: true,
+sayHello: function () {
+console.log("Estoy encantado de conocerle.");
+}
+};
+
+var fred = {
+name: "Fred",
+origin: "Sitting Ducks",
+canFly: false,
+sayHello: function () {
+console.log("Hi there!");
+}
+};
+
+let penguins = [gunter, ramon, fred]
+
+// 47. Access the first penguin in the list and print it to the console using console.log() -- notice that you can see all
+// the properties and methods of that object listed in the console! (Hint: remember that array indexes start counting at 0,
+// not 1!)
+console.log(penguins[0])
+
+
+// Create a new variable called secondPenguin and set it equal to the second penguin in your penguins array.
+let secondPenguin = penguins[1]
+
+// Print to the console the name of the last penguin in the list.
+console.log(penguins[penguins.length - 1].name)
+
+// Remember the penguin you created earlier, with the variable name of myPenguin? Add that penguin to the end of the
+// penguins array!
+console.log(myPenguin)
+penguins.push(myPenguin)
+
+//  Print the length of the penguins array to the console.
+console.log(penguins.length)
+
+// Write one more line of code to change the first penguin's canFly property to the value true (overriding its existing
+// value).
+penguins[0].canFly = true
+
+//  Call the sayHello method of the first penguin in your penguins array!
+penguins[0].sayHello()
+
+//  Write a for loop to iterate through every penguin in the array and print the value of each penguin's name property to
+//  the console.
+for (let i = 0; i < penguins.length; i++) {
+    console.log(penguins[i].name)
+}
+
+// . Write a for loop to call the sayHello method of every penguin in the array!
+for (let i = 0; i < penguins.length; i++) {
+    penguins[i].sayHello()
+}
+
+// 56. Write a for loop to iterate through every penguin in the array, and add a new property to each penguin called
+// numberOfFeet with the value 2
+for (let i = 0; i < penguins.length; i++) {
+    penguins[i].numberOfFeet = 2
+}
+
+// . Write another for loop to iterate through every penguin in the array, and for each penguin that can fly, print to the
+// console a message containing the penguin's name and " can fly!" -- for example, "Gunter can fly!" or "Ramón can fly!"
+// (Don't do anything for the penguins that cannot fly.)
+for (let i = 0; i < penguins.length; i++) {
+    if (penguins[i].canFly) {
+        console.log(penguins[i].name + ' can fly!')
+    }
+}   
+
+
+
 
 
 
