@@ -307,7 +307,201 @@
             return result;
         }
         
+
+        // Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+        const diagonalsDifference = (arr) => {
+            let result = 0;
+            let sum1 = 0;
+            let sum2 = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum1 += arr[i][i];
+                sum2 += arr[i][arr.length - 1 - i];
+            }
+            result = Math.abs(sum1 - sum2);
+            return result;
+
+        }
+
+        console.log(diagonalsDifference([
+            [11, 2, 4],
+            [4, 5, 6],
+            [10, 8, -12]
+        ]));
+
+        // Staircase detail
+
+        // This is a staircase of size :
+
+        // #
+        // ##
+        // ###
+        // ####
+        // Its base and height are both equal to . It is drawn using # symbols and spaces. The last line is not preceded by
+        // any spaces.
+
+        // Write a program that prints a staircase of size .
+
+        // Function Description
+
+        // Complete the staircase function in the editor below.
+
+        // staircase has the following parameter(s):
+
+        // int n: an integer
+        // Print
+
+        // Print a staircase as described above.
+
+        // Input Format
+        //A single integer, , denoting the size of the staircase
+
+        const staircase = (n) => {
+            let result = '';
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n; j++) {
+                    if (j < n - i - 1) {
+                        result += ' ';
+                    } else {
+                        result += '#';
+                        console.log(result)
+                    }
+                }
+                result += '\n';
+            }
+            return result;
+
+        }
+
+        console.log(staircase(6));
+
+
+
+// Shovels on a snowy day
+// Shovels!
+
+// It’s a winter day and you decide to set up a small shovel stand next to your house. You decide to sell them at a price
+// of 5€ each. Customers line up and will pay with either a 5€, 10€, 20€ or 50€ bill and your job is to provide the correct
+// change to them so that the transaction always ends with you being up 5€.
+
+// You can see the customers in the line, represented by an integer array bills where bills[i] is the euro amount of the
+// i:th customer in the line. Each customer is only interested in buying one shovel.
+
+// In the beginning, you have no money. bills[i] is always 5, 10, 20, or 50. There will always be at least one customer in
+// the line. Return either true or false depending on if you can sell shovels to all customers successfully (and provide
+// them all with change in the order they came in)
+
+// Examples:
+
+// Input: bills = [5,10,5,5,10,20]
+// Output: true
+// Explanation: First you get 5€, then 10€, and you pay back the first 5€ as exchange. Then you get 5€ twice and have
+// [10,5,5], get 10€, have [10,5,10], and then get 20€, finally having [10,20]. You managed to give correct change to all
+// customers.
+
+// Input: bills = [50,20,5,5,5,5,5,5]
+// // Output: false
+// // Explanation: You get 50€ and the next customer needs change for their 20€, which you can't give with 50€.
+// const canSellShovels = (bills) => {
+// let result = true;
+// let sum = 0;
+// for (let i = 0; i < bills.length; i++) { sum +=bills[i]; if (sum> 5) {
+//     result = false;
+//     break;
+//     }
+//     }
+//     return result;
+//     }
+
+const shovelChange = (bills) => {
+    let result = true;
+    let sum = 0;
+    for (let i = 0; i < bills.length; i++) {
+        sum += bills[i];
+    }
+    if (sum % 5 != 0) {
+        result = false;
+    }
+    return result;
+}
+
+//use break and continue to break the loop if i is equal to 5,and  console.log i
+for (let i = 0; i < 10; i++) {
+    if (i == 5) {
+        break;
+    }
+    console.log(i);
+}
+
+//use break and continue to print the numbers from 1 to 10, then break if i i greater than 10, and console.log i
+for (let i = 1; i < 11; i++) {
+    if (i > 10) {
+        break;
+    }
+    console.log(i);
+}
+
+//use continue to print console.log all even numbers from 1 to 10
+for (let i = 1; i < 11; i++) {
+    if (i % 2 == 0) {
+        continue;
+    }
+    console.log(i);
+}
+
+
+
+
+
+const countEvens = (nums) => {
+    let result = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] % 2 == 0) {
+            result++;
+        }
+    }
+    return result;
+}
+
+console.log(countEvens([2, 1, 2, 3, 4]));
+
+// Given a string;
+// "Hell hath no fury like a woman scorned"
+// And a reference string (ref);
+// "Worms to eat"
+// Output the count of each unique character from the ref string contained in the given string as an object.
+
+// Example:
+// W: 1,
+// O: 3,
+// R: 2,
+// M: 1,
+// S: 1,
+// T: 1,
+// E: 3,
+// A: 3,
+// }
+
+const countUniqueCharacters = (str, ref) => {
+    let result = {};
+    for (let i = 0; i < ref.length; i++) {
+        result[ref[i]] = 0;
+    }
+
+    for (let i = 0; i < str.length; i++) {
+        if (result[str[i]]) {
+            result[str[i]]++;
+        }
+    }
+    return result;
+}
+
+
     </script>
+
+
+
+
+
 </body>
 
 </html> 
