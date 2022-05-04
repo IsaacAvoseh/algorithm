@@ -494,6 +494,7 @@
                 if (str1.indexOf(ref1[i]) !== -1) {
                     result[ref1[i]] = str1.split(ref1[i]).length -
                         1;
+                        // result = {...result, [ref1[i]]: str1.split(ref1[i]).length - 1};
                 }
             }
             return result;
