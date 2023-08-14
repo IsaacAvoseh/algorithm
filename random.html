@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //           Let's say a triple (a, b, c) is a zigzag if either a < b > c or a > b < c.
+
+      //   Given an array of integers numbers, your task is to check all the triples of its consecutive elements for being a zigzag. More formally, your task is to construct an array of length numbers.length - 2, where the ith element of the output array equals 1 if the triple (numbers[i], numbers[i + 1], numbers[i + 2]) is a zigzag, and 0 otherwise.
+
+      function solution(numbers) {
+        let result = [];
+        for (let i = 0; i < numbers.length - 2; i++) {
+          if (
+            (numbers[i] < numbers[i + 1] && numbers[i + 1] > numbers[i + 2]) ||
+            (numbers[i] > numbers[i + 1] && numbers[i + 1] < numbers[i + 2])
+          ) {
+            result.push(1);
+          } else {
+            result.push(0);
+          }
+        }
+        return result;
+      }
+      console.log(solution([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+
+      //         You are given two strings - pattern and source. The first string pattern contains only the symbols 0 and 1, and the second string source contains only lowercase English letters.
+
+      //   Let's say that pattern matches a substring source[l..r] of source if the following three conditions are met:
+
+      //   they have equal length,
+      //   for each 0 in pattern the corresponding letter in the substring is a vowel,
+      //   for each 1 in pattern the corresponding letter is a consonant.
+      //   Your task is to calculate the number of substrings of source that match pattern.
+
+      //   Note: In this task we define the vowels as 'a', 'e', 'i', 'o', 'u', and 'y'. All other letters are consonants.
+
+      function solution1(pattern, source) {
+        let result = 0;
+        for (let i = 0; i < source.length - pattern.length + 1; i++) {
+          let sub = source.substring(i, i + pattern.length);
+          let isMatch = true;
+          for (let j = 0; j < pattern.length; j++) {
+            if (pattern[j] === "0") {
+              if (
+                sub[j] !== "a" &&
+                sub[j] !== "e" &&
+                sub[j] !== "i" &&
+                sub[j] !== "o" &&
+                sub[j] !== "u" &&
+                sub[j] !== "y"
+              ) {
+                isMatch = false;
+                break;
+              }
+            } else {
+              if (
+                sub[j] === "a" ||
+                sub[j] === "e" ||
+                sub[j] === "i" ||
+                sub[j] === "o" ||
+                sub[j] === "u" ||
+                sub[j] === "y"
+              ) {
+                isMatch = false;
+                break;
+              }
+            }
+          }
+          if (isMatch) {
+            result++;
+          }
+        }
+        return result;
+      }
+
+      // You are given an array of integers a and an integer k. Your task is to calculate the number of ways to pick two different indices i < j, such that a[i] + a[j] is divisible by k.
+
+      function solution2(a, k) {
+        let result = 0;
+        for (let i = 0; i < a.length; i++) {
+          for (let j = i + 1; j < a.length; j++) {
+            if ((a[i] + a[j]) % k === 0) {
+              result++;
+            }
+          }
+        }
+        return result;
+      }
+
+      //       You are given a matrix of integers field of size n × m representing a game field, and also a matrix of integers figure of size 3 × 3 representing a figure. Both matrices contain only 0s and 1s, where 1 means that the cell is occupied, and 0 means that the cell is free.
+
+      // You choose a position at the top of the game field where you put the figure and then drop it down. The figure falls down until it either reaches the ground (bottom of the field) or lands on an occupied cell, which blocks it from falling further. After the figure has stopped falling, some of the rows in the field may become fully occupied.
+      //       Your task is to find the dropping position such that at least one full row is formed. As a dropping position you should consider the column index of the cell in game field which matches the top left corner of the figure 3 × 3 matrix. If there are multiple dropping positions satisfying the condition, feel free to return any of them. If there are no such dropping positions, return -1.
+
+      // Note: When falling, the 3 × 3 matrix of the figure must be entirely inside the game field, even if the figure matrix is not totally occupied.
+
+      function solution3(field, figure) {
+        let result = -1;
+        for (let i = 0; i < field[0].length; i++) {
+          let isMatch = true;
+          for (let j = 0; j < figure[0].length; j++) {
+            if (field[0][i + j] === 1) {
+              isMatch = false;
+              break;
+            }
+          }
+          if (isMatch) {
+            result = i;
+            break;
+          }
+        }
+        return result;
+      }
+    </script>
+  </body>
+</html>

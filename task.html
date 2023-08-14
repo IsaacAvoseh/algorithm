@@ -500,6 +500,95 @@
             return result;
         }
         console.log(countUniqueCharacters("Hell hath no fury like a woman scorned", "Worms TO EAT"))
+
+
+
+        const users = {
+        Alex: {
+        email: 'alex@alex.com',
+        skills: ['HTML', 'CSS', 'JavaScript'],
+        age: 20,
+        isLoggedIn: false,
+        points: 30
+        },
+        Asab: {
+        email: 'asab@asab.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'Redux', 'MongoDB', 'Express', 'React', 'Node'],
+        age: 25,
+        isLoggedIn: false,
+        points: 50
+        },
+        Brook: {
+        email: 'daniel@daniel.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux'],
+        age: 30,
+        isLoggedIn: true,
+        points: 50
+        },
+        Daniel: {
+        email: 'daniel@alex.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'Python'],
+        age: 20,
+        isLoggedIn: false,
+        points: 40
+        },
+        John: {
+        email: 'john@john.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js'],
+        age: 20,
+        isLoggedIn: true,
+        points: 50
+        },
+        Thomas: {
+        email: 'thomas@thomas.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+        age: 20,
+        isLoggedIn: false,
+        points: 40
+        },
+        Paul: {
+        email: 'paul@paul.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Node'],
+        age: 20,
+        isLoggedIn: false,
+        points: 40
+        }
+        }
+
+        // Find the person who has many skills in the users object.
+        // Output the person's name and email.
+
+        const copyUsers = Object.assign({}, users);
+        // const copyUsers = { ...users };
+
+        const findManySkills = (usersList) => {
+            let result = {};
+            let max = 0;
+            for (let key in usersList) {
+                if (usersList[key].skills.length > max) {
+                    max = usersList[key].skills.length;
+                    result = usersList[key];
+                }
+            }
+            return result;
+        }
+        console.log(findManySkills(copyUsers));
+
+        // const findManySkills = (users) => {
+        //     let result = {};
+        //     let max = 0;
+        //     for (let key in users) {
+        //         if (users[key].skills.length > max) {
+        //             max = users[key].skills.length;
+        //             result = users[key];
+        //         }
+        //     }
+        //     console.log(result);
+        //     return result;
+        // }
+        // console.log(findManySkills(users));
+
+
     </script>
 
 
